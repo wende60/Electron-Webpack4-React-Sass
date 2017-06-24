@@ -1,0 +1,13 @@
+# NPM packages
+node_modules
+
+# General ignored folder
+ignore
+
+# Webpack build directory
+build
+
+# Packaged app
+bin
+
+.sass-cache

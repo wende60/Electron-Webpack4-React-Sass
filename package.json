@@ -1,0 +1,31 @@
+{
+  "name": "Electron-Webpack-React-Sass",
+  "version": "0.1.0",
+  "author": "Joachim Wendenburg <kgde@wendenburg.de>",
+  "main": "main.js",
+  "devDependencies": {
+    "babel-core": "^6.2.1",
+    "babel-loader": "^6.1.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^0.21.0",
+    "electron": "^1.7.2",
+    "electron-packager": "^7.0.0",
+    "extract-text-webpack-plugin": "^2.1.0",
+    "node-sass": "^3.4.2",
+    "react": "^0.14.0",
+    "react-dom": "^0.14.0",
+    "sass-loader": "^3.0.0",
+    "style-loader": "^0.13.0",
+    "webpack": "^2.5.1",
+    "webpack-dev-server": "^2.4.3",
+    "webpack-merge": "^4.1.0"
+  },
+  "scripts": {
+    "electron": "webpack --config webpack.config.electron.js electron && electron .",
+    "web": "webpack-dev-server --config webpack.config.web.js --hot --inline",
+    "//": "IMPORTANT! make sure to ignore the target directory when packing!",
+    "bin": "webpack  --config webpack.config.electron.js electron -p && electron-packager ./ electronWebpackReactSass --out ./bin --platform darwin --arch x64 --version=1.7.2 --overwrite --ignore=\"ignore|bin|node_modules\""
+  }
+}
