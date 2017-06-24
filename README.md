@@ -1,5 +1,5 @@
-Electron, Webpack, React and Sass
-----------------------------------
+Electron, Webpack 2, React and Sass
+-----------------------------------
 
 Boilerplate for a setup based on Electron, Webpack 2, React and Sass with hot reloading, Babel will transpile ES6 to ES2015.
 
