@@ -1,5 +1,5 @@
 {
-  "name": "Electron-Webpack-React-Sass",
+  "name": "Electron-Webpack2-React-Sass",
   "version": "0.1.0",
   "author": "Joachim Wendenburg <kgde@wendenburg.de>",
   "main": "main.js",
@@ -26,6 +26,6 @@
     "electron": "webpack --config webpack.config.electron.js electron && electron .",
     "web": "webpack-dev-server --config webpack.config.web.js --hot --inline",
     "//": "IMPORTANT! make sure to ignore the target directory when packing!",
-    "bin": "webpack  --config webpack.config.electron.js electron -p && electron-packager ./ electronWebpackReactSass --out ./bin --platform darwin --arch x64 --version=1.7.2 --overwrite --ignore=\"ignore|bin|node_modules\""
+    "bin": "webpack  --config webpack.config.electron.js electron -p && electron-packager ./ electronWebpack2ReactSass --out ./bin --platform darwin --arch x64 --version=1.7.2 --overwrite --ignore=\"ignore|bin|node_modules\""
   }
 }
