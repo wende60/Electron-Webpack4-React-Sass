@@ -1,15 +1,16 @@
-Electron, Webpack 2, React and Sass
+Electron, Webpack 4, React and Sass
 -----------------------------------
 
-Boilerplate for a setup based on Electron, Webpack 2, React and Sass with hot reloading, Babel will transpile ES6 to ES2015.
+Boilerplate for a setup based on Electron, Webpack 4, React and Sass with hot reloading, 
+Babel will transpile ES6, allow arrow functions as class methods and provide a polyfill for async/await.
 
-A css file is created by using *extract-text-webpack-plugin*.
-ES6 arrow functions within React Components are possible by the babel plugin *transform-class-properties*
+A css file is created by using *mini-css-extract-plugin*.
 
-- npm install
-- npm run web -> develop on localhost, main process features are not available
-- npm run electron -> open up in electron und work with main process features
-- npm run bin -> create darwin app
+- npm install -> to unstall all npm modules
+- npm run web -> to test app in a webbrowser (electron main process functionality is not available)
+- npm run electronDebug -> to open electron window with console output
+- npm run electron -> to open electron window without console output
+- npm run bin -> to create app for mac (win and linux are in place, edit package.json)
 
 I tried to keep it simple to inspire you. Feel free to suggest improvements :)
 
