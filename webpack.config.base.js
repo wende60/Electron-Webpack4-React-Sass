@@ -1,46 +1,48 @@
-const webpack = require('webpack');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-const webpackConfig = {
-    context: __dirname + '/src',
-    entry: './index.js',
+module.exports = (env, options) => {
+    return {
+        /* +++++ entry +++++ */
+        entry: __dirname + '/src/index.js',       
 
-    resolve: {
-        extensions: ['.js', '.jsx', '.json'],
-        modules: [
-            __dirname + '/build',
-            'node_modules',
-        ],
-    },
-
-    module: {
-        rules: [
-            {
-                test: /\.js$/,
-                exclude: /node_modules/,
-                use: [{
-                    loader: 'babel-loader',
-                    options: {
-                        presets: ['es2015', 'react'],
-                        plugins: ["transform-class-properties"]
-                    }
-                }],
-
-            },
-            {
-                test: /\.scss$/,
-                use: ExtractTextPlugin.extract({
-                    fallback: 'style-loader',
-                    use: 'css-loader!sass-loader'
-                })
-            }
+        module: {
+            rules: [
+                {
+                    test: /\.(js|jsx)$/,
+                    exclude: /node_modules/,
+                    use: [{
+                        loader: 'babel-loader',
+                        options: {
+                            presets: ['env', 'react', 'stage-0'],
+                            plugins: [
+                                "transform-class-properties",
+                                "transform-runtime"
+                            ]
+                        }
+                    }],                
+                },
+                {
+                    test: /\.s?css$/,
+                    exclude: /node_modules/,
+                    use: [
+                        { loader: MiniCssExtractPlugin.loader },
+                        { loader: 'css-loader' },
+                        { loader: 'sass-loader' },                       
+                    ]
+                },
+                {
+                    test: /\.svg$/,
+                    exclude: /node_modules/,
+                    use: [{
+                        loader: 'raw-loader'
+                    }]
+                }
+            ]
+        },
+    
+        /* +++++ plugins +++++ */
+        plugins: [
+            new MiniCssExtractPlugin()
         ]
-    },
-
-    plugins: [
-        new ExtractTextPlugin("style.css")
-    ]
+    };
 };
-
-module.exports = webpackConfig;
-
